@@ -2,7 +2,7 @@ import { Leva } from 'leva';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
-import { PerspectiveCamera , Html} from '@react-three/drei';
+import { PerspectiveCamera , OrbitControls } from '@react-three/drei';
 
 import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
@@ -24,6 +24,9 @@ const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const isSmallr = useMediaQuery({ maxWidth: 150 });
+  const isMobiler = useMediaQuery({ maxWidth: 230 });
+  const isTabletr = useMediaQuery({ minWidth: 200, maxWidth: 300 });
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
@@ -48,17 +51,28 @@ const Hero = () => {
             </HeroCamera>
 
             <group>
-              {/* <Target position={sizes.targetPosition} /> */}
-              {/* <ReactLogo position={sizes.reactLogoPosition} /> */}\
+              {/* <Target position={sizes.targetPosition} />  */}
+               {/* <ReactLogo position={sizes.reactLogoPosition} /> */}
               {/* <RobotPlayground position={sizes.robotPlaygroundPosition} /> */}
               {/* <Rings position={sizes.ringPosition} /> */}
-              <Cube position={sizes.cubePosition} />
+              {/* <Cube position={sizes.cubePosition} /> */}
               <MiniRobot position={sizes.miniRobotPosition}/>
             </group>
 
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>
+        </Canvas>
+      </div>
+
+      <div className="absolute left-0 w-1/3 h-full flex justify-center">
+      <p>Hello</p>
+       <Canvas >
+          <Suspense fallback={null}>
+              <RobotPlayground position={[-1, -2, 0]} />
+          </Suspense>
+          <OrbitControls enableZoom={true} enableRotate={true} />
+          <ambientLight intensity={1} />
         </Canvas>
       </div>
 
