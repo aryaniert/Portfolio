@@ -16,17 +16,7 @@ export function RobotPlayground(props) {
     useGLTF.preload('/models/robot_playground.glb')
 
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY
-            // if (scrollY > 0) {
-                actions['Experiment']?.play() // Replace with actual animation name
-            // } else {
-            //     actions['Experiment']?.stop()
-            // }
-        }
-
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+                actions['Experiment']?.play() 
     }, [actions])
     return (
         <group ref={group} {...props} dispose={null}>

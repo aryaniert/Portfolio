@@ -5,32 +5,9 @@ import { Float, useGLTF } from '@react-three/drei';
 const MiniRobot = (props) => {
   const ref = useRef();
   const { nodes, materials } = useGLTF('/models/mini-robot.glb');
-  const [mousePosition, setMousePosition] = useState({ x: 2, y: 0 });
-
-  // Update mouse position on pointer move
-  const handlePointerMove = (event) => {
-    const { clientX, clientY } = event;
-    const x = (clientX / window.innerWidth) * 4 - 1; // Normalize to [-1, 1]
-    const y = -(clientY / window.innerHeight)* 4 + 1; // Normalize to [-1, 1]
-    setMousePosition({ x, y });
-  };
-
-  // Smoothly interpolate rotation towards mouse position
-  useFrame(() => {
-    if (ref.current) {
-      // Map mouse position to rotation angles
-      const targetRotationY = mousePosition.x * Math.PI * 0.3; // Adjust sensitivity (Y-axis rotation)
-      const targetRotationX = mousePosition.y * Math.PI * 0.0001; // Adjust sensitivity (X-axis rotation)
-
-      // Smoothly interpolate rotation
-      ref.current.rotation.x += (targetRotationX - ref.current.rotation.x) * 0.16;
-      ref.current.rotation.y += (targetRotationY - ref.current.rotation.y) * 0.16;
-    }
-  });
-
   return (
-      <Float onPointerMove={handlePointerMove} dispose={null} floatIntensity={20}>
-        <group  ref={ref} {...props}  scale={0.007}>
+      <Float  dispose={null} floatIntensity={6}>
+        <group  ref={ref} {...props} rotation={[0, -5, 0]} scale={0.003}>
           <group position={[-195.6908, -57.8547, -83.6315]} rotation={[-1.8648, 0, 0]} scale={100}>
             <mesh
               geometry={nodes.Cylinder007_Name_Orange_0.geometry}
