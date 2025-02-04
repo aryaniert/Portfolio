@@ -28,7 +28,7 @@ const Contact = () => {
           from_name: form.name,
           to_name: 'JavaScript Mastery',
           from_email: form.email,
-          to_email: 'sujata@jsmastery.pro',
+          to_email: 'aryan@jsmastery.pro',
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
@@ -88,9 +88,10 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="field-input"
-                placeholder="ex., John Doe"
+                placeholder="ex., Aryan Vishwakarma"
               />
             </label>
+
 
             <label className="space-y-3">
               <span className="field-label">Email address</span>
@@ -101,7 +102,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="field-input"
-                placeholder="ex., johndoe@gmail.com"
+                placeholder="ex., aryan15498@gmail.com"
               />
             </label>
 
