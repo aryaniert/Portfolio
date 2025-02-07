@@ -92,7 +92,7 @@ export const myProjects = [
     ],
   },
   {
-    title: 'X-Growth - Full Stack Developer',
+    title: 'X-Growth -Full Stack Developer',
     desc: 'Developed XEmailVerify to filter invalid emails, reducing costs, and built XCampaign, optimizing email automation and deliverability across Google and Microsoft mail servers. Designed dynamic level-based email workflows with templating automation and implemented IMAP/SMTP protocols in a Node.js-based system for secure email handling.',
     subdesc:
       'Contributed to XGrowth, integrating AWS SES, Amazon S3, and Microsoft Azure to scale email infrastructure and improve campaign tracking.',
